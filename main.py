@@ -17,8 +17,8 @@ def keep_alive():
     thread = Thread(target=run_webserver)
     thread.start()
 
-TELEGRAM_BOT_TOKEN = os.getenv("T8194602621:AAFBOIzunPMVScHsvBqEfbaGkF57vJJJ_-E
-")
+# Получаем токен бота из переменных окружения
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 if TELEGRAM_BOT_TOKEN is None:
     raise ValueError("Please set the TELEGRAM_BOT_TOKEN in environment variables.")
 
@@ -37,7 +37,7 @@ def fallback_handler(message):
     button = types.InlineKeyboardButton(text='Visit The Website', url='https://Rocketlikes.com')
     markup.add(button)
     bot.send_message(message.chat.id, "Hi! That is an assistant bot! Here is the website:", reply_markup=markup)
-    
+
 if __name__ == "__main__":
     keep_alive()
     bot.remove_webhook()
