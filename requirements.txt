@@ -1,4 +1,2 @@
 pyTelegramBotAPI
-flask
 
-Token == 8194602621:AAFBOIzunPMVScHsvBqEfbaGkF57vJJJ_-E
