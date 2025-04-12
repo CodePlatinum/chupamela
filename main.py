@@ -54,5 +54,4 @@ def fallback_handler(message):
 
 if __name__ == "__main__":
     keep_alive()
-    bot.remove_webhook()  # Убедитесь, что не используете webhook
     bot.polling(non_stop=True)
