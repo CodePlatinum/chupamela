@@ -3,6 +3,7 @@ from flask import Flask
 from threading import Thread
 import telebot
 from telebot import types
+import ssl
 
 app = Flask(__name__)
 
@@ -21,6 +22,9 @@ def keep_alive():
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 if TELEGRAM_BOT_TOKEN is None:
     raise ValueError("Please set the TELEGRAM_BOT_TOKEN in environment variables.")
+    TELEGRAM_BOT_TOKEN = TELEGRAM_BOT_TOKEN.strip()  # Удаляет лишние пробелы в начале и конце
+if ' ' in TELEGRAM_BOT_TOKEN:
+    raise ValueError("Token must not contain spaces.")
 
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
