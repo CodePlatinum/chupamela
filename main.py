@@ -11,7 +11,9 @@ def home():
     return "I'm alive!"
 
 def run_webserver():
-    app.run(host='0.0.0.0', port=8080)
+    # Используем динамический порт для Railway
+    port = int(os.getenv('PORT', 8080))
+    app.run(host='0.0.0.0', port=port)
 
 def keep_alive():
     thread = Thread(target=run_webserver)
@@ -52,5 +54,5 @@ def fallback_handler(message):
 
 if __name__ == "__main__":
     keep_alive()
-    bot.remove_webhook()
+    bot.remove_webhook()  # Убедитесь, что не используете webhook
     bot.polling(non_stop=True)
