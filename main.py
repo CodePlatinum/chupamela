@@ -32,8 +32,11 @@ def start_handler(message):
 
 @bot.message_handler(func=lambda message: True)
 def fallback_handler(message):
-    bot.reply_to(message, "Click the button to visit my website.")
-
+    markup = types.InlineKeyboardMarkup()
+    button = types.InlineKeyboardButton(text='Visit The Website', url='https://Rocketlikes.com')
+    markup.add(button)
+    bot.send_message(message.chat.id, "Hi! That is an assistant bot! Here is the website:", reply_markup=markup)
+    
 if __name__ == "__main__":
     keep_alive()
     bot.remove_webhook()
