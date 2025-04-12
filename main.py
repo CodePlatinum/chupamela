@@ -17,7 +17,8 @@ def keep_alive():
     thread = Thread(target=run_webserver)
     thread.start()
 
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_BOT_TOKEN = os.getenv("T8194602621:AAFBOIzunPMVScHsvBqEfbaGkF57vJJJ_-E
+")
 if TELEGRAM_BOT_TOKEN is None:
     raise ValueError("Please set the TELEGRAM_BOT_TOKEN in environment variables.")
 
